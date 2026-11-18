@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'RITUAL — Cosmética Botánica & Bienestar' }}</title>
+    <title>{{ $title ?? 'RITUAL — Cosmetica Natural' }}</title>
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
 </head>
 <body>
 
     <header class="site-header">
         <nav class="navbar container">
-            <a href="{{ route('home') }}" class="brand-logo">✦ RITUAL ✦</a>
+            <a href="{{ route('home') }}" class="brand-logo">RITUAL</a>
             <ul class="nav-links">
 
-                <li><x-nav-link route="boxes.index">Boxes</x-nav-link></li>
+                <li><x-nav-link route="boxes.index">Box</x-nav-link></li>
                 <li><x-nav-link route="posts.index"> Blog</x-nav-link></li>
                 <li><x-nav-link route="admin.posts.index">Admin</x-nav-link></li>
                 
@@ -33,7 +33,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>© 2026 RITUAL — Magia Botánica & Cuidado Personal</p>
+            <p>© 2026 RITUAL — Cuidado Natural</p>
         </div>
     </footer>
 

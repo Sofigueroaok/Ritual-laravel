@@ -1,58 +1,131 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# RITUAL — E-Commerce de Cuidado Personal Botánico
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicación web de comercio electrónico y contenido editorial desarrollada con el framework **Laravel** bajo el patrón de arquitectura **Modelo-Vista-Controlador (MVC)**. El proyecto ofrece un catálogo de cajas temáticas de cuidado personal (*boxes*), un blog editorial (*Grimorio Botánico & Novedades*) y un panel de administración para la gestión de contenidos.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Arquitectura y Funcionalidades Principales
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* **Página de Inicio (`/`):** Presentación de la propuesta de valor y exhibición dinámica de los productos destacados.
+* **Catálogo de Productos (`/boxes` y `/boxes/{id}`):** Listado completo de cajas botánicas y vista de detalle individual con descripción, contenido y precio formateado.
+* **Blog Editorial (`/blog` y `/blog/{slug}`):** Publicaciones sobre herbolaria, fases lunares y guías de uso con navegación mediante *slugs* amigables.
+* **Panel de Administración (`/admin/blog`):** Operaciones CRUD (creación, lectura, actualización y eliminación) para los artículos del blog, con validación de datos del lado del servidor y mensajes de confirmación de sesión.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Stack Tecnológico
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* **Backend:** PHP 8.3+ / Laravel 13
+* **Base de Datos:** MySQL / MariaDB (gestionado mediante Eloquent ORM, Migraciones y Seeders)
+* **Frontend:** Motor de plantillas Blade, componentes reutilizables y hojas de estilo CSS3 (`public/css/app.css`)
+* **Gestión de Dependencias:** Composer
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Requisitos Previos
 
-## Agentic Development
+Antes de instalar y ejecutar el proyecto, asegúrese de contar con las siguientes herramientas en su entorno local (Laragon, XAMPP o similar):
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+1. **PHP** >= 8.2 con las extensiones `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `ctype`, `json` y `zip` habilitadas.
+2. **Composer** instalado y accesible desde la terminal.
+3. **Servidor de Base de Datos** MySQL o MariaDB en ejecución.
+
+---
+
+## Guía de Instalación y Puesta en Marcha
+
+Siga estos pasos en orden desde la terminal ubicada en la carpeta raíz del proyecto:
+
+### 1. Clonar o descomprimir el repositorio
+Sitúese dentro del directorio raíz del proyecto:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+cd ritual
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Instalar las dependencias de PHP
+Ejecute Composer para descargar el núcleo de Laravel y los paquetes definidos en `composer.json`:
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Configurar las variables de entorno
+Copie el archivo de plantilla `.env.example` para generar su archivo de configuración local `.env`:
 
-## Code of Conduct
+```bash
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+*(En Windows CMD puede utilizar `copy .env.example .env`).*
 
-## Security Vulnerabilities
+### 4. Generar la clave de seguridad de la aplicación
+Ejecute el comando de Artisan para asignar la clave `APP_KEY` dentro del archivo `.env`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan key:generate
+```
 
-## License
+### 5. Configurar la conexión a la base de datos
+Abra el archivo `.env` y ajuste los parámetros de conexión según las credenciales de su servidor local MySQL o MariaDB:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ritual_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 6. Ejecutar las migraciones y cargar los datos iniciales
+Corra las migraciones junto con los *seeders* (`BoxSeeder` y `PostSeeder`) para crear la estructura de tablas y poblar la base de datos con registros de prueba:
+
+```bash
+php artisan migrate --seed
+```
+
+*(Si la base de datos `ritual_db` aún no existe en su gestor local, Laravel solicitará confirmación en la consola para crearla automáticamente).*
+
+### 7. Iniciar el servidor de desarrollo
+Levante el servidor local integrado de Artisan:
+
+```bash
+php artisan serve
+```
+
+Una vez iniciado, acceda desde su navegador web a la siguiente dirección:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## Estructura de Directorios Relevantes
+
+* `app/Http/Controllers/` — Controladores (`HomeController`, `BoxesController`, `PostController`).
+* `app/Models/` — Modelos Eloquent (`Box`, `Post`, `User`).
+* `database/migrations/` — Definición esquemática de las tablas de la base de datos.
+* `database/seeders/` — Clases para la carga inicial de productos y artículos.
+* `resources/views/` — Vistas Blade públicas, vistas del panel administrativo (`admin/posts/`) y componentes (`components/layout.blade.php`).
+* `routes/web.php` — Definición de rutas web públicas y administrativas.
+* `public/css/app.css` — Hojas de estilo globales de la aplicación.
+
+---
+
+## Rutas Principales
+
+| Método | URI | Acción | Descripción |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/` | `HomeController@index` | Página principal con productos destacados |
+| `GET` | `/boxes` | `BoxesController@index` | Catálogo completo de boxes |
+| `GET` | `/boxes/{id}` | `BoxesController@show` | Detalle individual de una box |
+| `GET` | `/blog` | `PostController@index` | Listado público de artículos del blog |
+| `GET` | `/blog/{slug}` | `PostController@show` | Lectura completa de un artículo |
+| `GET` | `/admin/blog` | `PostController@adminIndex` | Panel de administración de entradas |
+| `GET` | `/admin/blog/crear` | `PostController@create` | Formulario de creación de entrada |
+| `POST` | `/admin/blog` | `PostController@store` | Almacenamiento de nueva entrada |
+| `GET` | `/admin/blog/{id}/editar` | `PostController@edit` | Formulario de edición de entrada |
+| `PUT` | `/admin/blog/{id}` | `PostController@update` | Actualización de entrada existente |
+| `DELETE` | `/admin/blog/{id}` | `PostController@destroy` | Eliminación de entrada |

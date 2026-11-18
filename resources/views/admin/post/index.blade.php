@@ -43,7 +43,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" style="padding: 1rem;">Todavía no hay entradas cargadas en el Grimorio.</td>
+                            <td colspan="6" style="padding: 1rem;">Todavia no hay novedades cargadas en el Grimorio.</td>
                         </tr>
                     @endforelse
                 </tbody>

@@ -8,17 +8,17 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    // --- VISTAS PÚBLICAS ---
+   // --- VISTAS PÚBLICAS ---
     public function index()
     {
-        $posts = Post::latest()->get();
-        return view('post.index', compact('posts'));
+    $posts = Post::latest()->get();
+    return view('posts.index', compact('posts'));
     }
 
     public function show(string $slug)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
-        return view('post.show', compact('post'));
+    $post = Post::where('slug', $slug)->firstOrFail();
+    return view('posts.show', compact('post'));
     }
 
     // --- PANEL ADMIN  ---

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RITUAL — Alquimia Botánica & Boxes Wicca</title>
+    <title>RITUAL — Cosmetica Natural</title>
     <style>
         :root {
             --bg-dark: #130d1d;        /* Violeta noche profundo */
@@ -101,24 +101,24 @@
 <body>
 
 <x-layout>
-    <x-slot:title>RITUAL — Boxes Botánicas de Skincare, Cuerpo y Cabello</x-slot:title>
+    <x-slot:title>RITUAL — Cosmetica Natural</x-slot:title>
 
     {{-- 1. Presentación real de la marca y propuesta --}}
     <section class="card-ritual section" style="text-align: center; padding: 3rem 1.5rem;">
         <div>
-            <span class="badge-category">✦ Alquimia Botánica & Autocuidado ✦</span>
+            <span class="badge-category">Botánica & Autocuidado </span>
             <h1>Transformá tu rutina diaria en un ritual sagrado</h1>
             <p style="max-width: 680px; margin-inline: auto;">
-                En <strong>RITUAL</strong> curamos boxes mensuales y temáticas de <strong>skincare, cuidado corporal y capilar</strong> elaboradas con extractos herbales, aceites esenciales puros y estética inspirada en la naturaleza y la magia lunar.
+                En <strong>RITUAL</strong> creamos boxes mensuales de <strong>skincare, cuidado corporal y capilar</strong> elaboradas con extractos herbales, aceites esenciales puros, inspirada en la naturaleza y la magia lunar.
             </p>
             <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="{{ route('boxes.index') }}" class="btn btn-primary">Explorar todas las Boxes</a>
-                <a href="{{ route('posts.index') }}" class="btn btn-outline-green">Leer el Grimorio (Blog)</a>
+                <a href="{{ route('boxes.index') }}" class="btn btn-primary">Ver Boxes</a>
+                <a href="{{ route('posts.index') }}" class="btn btn-outline-green">Blog</a>
             </div>
         </div>
     </section>
 
-    {{-- 2. Sección Productos / Boxes Destacadas --}}
+    {{-- 2. Sección Productos Destacados --}}
     <section class="section">
         <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
             <h2>Boxes Destacadas</h2>
@@ -145,7 +145,7 @@
     {{-- 3. Sección Blog / Novedades dinámicas desde BD --}}
     <section class="section">
         <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
-            <h2>Últimas Entradas del Grimorio</h2>
+            <h2>Novedades del Grimorio</h2>
             <a href="{{ route('posts.index') }}">Ver todos los artículos →</a>
         </div>
 
